@@ -132,3 +132,24 @@ const disposer2 = observe(todos, (change) => {
  * observable.map(values?)创建一个动态的observable映射，values可以是对象、数组、或者字符串健的es6 map
  */
 
+ const map = observable(new Map());
+//  @observable map = new Map();
+
+// 被设置为observable的映射具有普通映射的方法
+map.set('name', 'li'); // 给映射设置键值对
+map.get('name'); // 获取值
+map.has('name'); // 判断值是否存在
+map.keys() // 获取所有存在的key
+map.values() // 获取所有的值
+map.delete('name') // 删除某个键值对
+map.clear() // 清空映射
+map.size // 获得映射的长度
+
+// mobx定义的映射新增的属性
+
+
+map.toJS() // 将observable映射转化为普通映射
+map.toJSON() // 返回此对象浅式普通对象表示
+map.intercept() // 同对象数组
+map.observe() // 同对象数组
+map.merge(values) // 将values拷贝到映射中
