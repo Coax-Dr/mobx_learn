@@ -85,3 +85,45 @@ autorun(() => {
 })
 
 set(collection, { 'age' : 11 });
+
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+// 三个基本概念：状态state、衍生derivations、动作actions
+/**
+ * 状态：驱动应用的数据
+ * 衍生：任何源自状态并且不会再有任何进一步作用行为，在mobx中这种衍生主要有两种：
+ * computed、reactions-状态发生改变时自触发的副作用。
+ * 动作：任意一段可以改变状态的代码
+ */
+
+ var todoStore = observable({
+   /**
+    * 一些被观察的状态
+    */
+   todos:[],
+   /**
+    * 推导值
+    */
+   get comptetedCount() {
+     return this.todos.filter(todo => todo.completed).length;
+   }
+ })
+
+ /**
+  * 当状态改变时自动执行
+  */
+ autorun(function() {
+   console.log('观察状态的改变', todoStore.completedCount, todoStore.todos.length);
+ })
+
+ /**
+  * 改变状态的动作 Actions
+  */
+
+  todoStore.todos[0] = {
+    // 一些改变
+    /**
+     * 当在actions中对状态进行改变时，autorun函数同步打印执行
+     */
+  }
