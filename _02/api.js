@@ -153,3 +153,14 @@ map.toJSON() // 返回此对象浅式普通对象表示
 map.intercept() // 同对象数组
 map.observe() // 同对象数组
 map.merge(values) // 将values拷贝到映射中
+
+////////////////////////////////////////////////////////////////////////////////
+
+/**
+ * 装饰器
+ * 创建的observable对象自动调用obdervable.deep调节器
+ * 浅拷贝： observable.shallow
+ * 对于不由自己管理的不可变对象，可以使用observable.ref调节器，只会追踪对象的引用
+ */
+
+
