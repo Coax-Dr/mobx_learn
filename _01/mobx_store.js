@@ -1,4 +1,4 @@
-import { observable, decorate, computed, autorun, set, get } from 'mobx';
+import { observable, decorate, computed, autorun } from 'mobx';
 
 // observable state 可观察的状态
 class Todo {
