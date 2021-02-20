@@ -1,4 +1,4 @@
-import { observable, computed, decorate, autorun } from 'mobx';
+import { observable, computed, decorate, autorun, reaction } from 'mobx';
 /**
  * computed与autorun
  * 如果想响应式的产生一个可以被其他observer的值，请使用@computed
@@ -78,3 +78,25 @@ autorun(() => {
     }
  })
 
+
+ ////////////////////////////////////////////////////////////////////////////////////////////
+
+ /**
+  * reaction(() => data, (data, reaction) => { sideEffect }, options?)
+  * 第一个数据函数用于追踪observable的变化，并进行计算，其返回的值将作为第二个参数的输入
+  * reaction函数将会返回一个reaction作为清理函数
+  * 第二个参数将会接受两个参数，第一个参数第一个参数为函数参数的，第二个参数为reaction清理函数，用于在函数执行期间清除reaction
+  * 
+  */
+ const todos = observable([
+     {
+         title: 'Make coffee',
+         done: true
+     },
+     {
+         title: 'Find biscuit',
+         done: false
+     }
+ ])
+
+ const reaction1 = reaction(() => todos.length, length => console.log('length', length))
