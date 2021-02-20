@@ -18,6 +18,7 @@
   "homepage": "https://github.com/Coax-Dr/mobx_learn#readme",
   "dependencies": {
     "mobx": "^6.1.5",
-    "mobx-react": "^7.1.0"
+    "mobx-react": "^7.1.0",
+    "mobx-utils": "^6.0.3"
   }
 }
